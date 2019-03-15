@@ -1295,6 +1295,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	      _googleMaps2.default.CHANNEL = options.channel;
 	    }
 
+	    if (options.language) {
+	      _googleMaps2.default.LANGUAGE = options.language;
+	    }
+
+	    if (options.region) {
+	      _googleMaps2.default.REGION = options.region;
+	    }
+
 	    self._type = options.maptype || "SATELLITE";
 
 	    _googleMaps2.default.load(function (_google) {
@@ -1336,7 +1344,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      map.on("resize", this._resize, this);
 
 	      // 20px instead of 1em to avoid a slight overlap with google's attribution
-	      map._controlCorners.bottomright.style.marginBottom = "20px";
+	      if (map._controlCorners) map._controlCorners.bottomright.style.marginBottom = "20px";
 
 	      this._reset();
 	      this._update();
